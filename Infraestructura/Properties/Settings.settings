@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Infraestructura.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ConexionGT" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Data Source=EC2AMAZ-APRE02I\SQLEXPRESS;Initial Catalog=dbGTIntegration;User ID=dbOwner;Password=AnurotecSiesa2021;Integrated Security=False</Value>
+    </Setting>
+    <Setting Name="Infraestructura_Anurotec_wsGenerarPlano" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost/GTIntegration/ServiciosWeb/wsGenerarPlano.asmx</Value>
+    </Setting>
+    <Setting Name="Infraestructura_ConsumoGT_wsGenerarPlano" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost/GTIntegration/ServiciosWeb/wsGenerarPlano.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
