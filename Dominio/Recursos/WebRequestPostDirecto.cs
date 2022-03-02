@@ -23,6 +23,8 @@ namespace Dominio.Recursos
         ConectorTercerosClientes _ConectorTercerosClientes = new ConectorTercerosClientes();
 
         ConectorTercerosProveedor _ConectorTercerosProveedor = new ConectorTercerosProveedor();
+        ConectorOrdenCompraInfluencer _ConectorOrdenCompraInfluencer = new ConectorOrdenCompraInfluencer();
+
 
         BDConsultar _BdConsultar = new BDConsultar();
         Logs _Logs = new Logs();
@@ -66,21 +68,27 @@ namespace Dominio.Recursos
                 string respuesta = response.Content.ToString();
 
 
-                
+
                 if (endpoint.Equals(EndPointVentasdeServicio))
                 {
-                    
+
                     _ConectorVentasdeServicio.conectorVentasdeServicio(respuesta);
                 }
                 else if (endpoint.Equals(EndPointTercerosProveedor))
                 {
-                 
+
                     _ConectorTercerosProveedor.conectorTercerosProveedor(respuesta);
-                }else if (endpoint.Equals(EndPointTercerosComercianteCliente))
+                }
+                else if (endpoint.Equals(EndPointTercerosComercianteCliente))
                 {
-                   
+
                     _ConectorTercerosClientes.conectorTercerosClientes(respuesta);
                 }
+                else if (endpoint.Equals(EndPointOrdenCompraInfluencer))
+                {
+                    _ConectorOrdenCompraInfluencer.conectorOrdenCompraInfluencer(respuesta);
+                }
+
                 
 
 
