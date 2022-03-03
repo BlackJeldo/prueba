@@ -15,11 +15,11 @@ namespace Infraestructura.Procesos
         //SqlConnection _sqlConnection = new SqlConnection(Settings.Default.ConexionGT);
         //SqlCommand _SqlCommand = new SqlCommand();
 
-        public void ActualizarIntegrado(int proceso,DataSet ds)
+        public void ActualizarIntegrado(int proceso, DataSet ds)
         {
             string consultaSql = "";
 
-            switch(proceso){
+            switch (proceso) {
                 case 1:
                     consultaSql = "Sp_Actualizar_Integrado";
                     break;
@@ -29,15 +29,18 @@ namespace Infraestructura.Procesos
                 case 3:
                     consultaSql = "Sp_Actualizar_Integrado_TCliente";
                     break;
+                case 4:
+                    consultaSql = "Sp_Actualizar_Integrado_OCInfluencer";
+                    break;
             }
 
 
             SqlConnection sqlConnection = new SqlConnection();
             sqlConnection.ConnectionString = Infraestructura.Properties.Settings.Default.ConexionGT;
 
-            SqlCommand sqlCommand = new SqlCommand(consultaSql,sqlConnection);
+            SqlCommand sqlCommand = new SqlCommand(consultaSql, sqlConnection);
             sqlCommand.CommandType = CommandType.StoredProcedure;
-            sqlCommand.Parameters.AddWithValue("@Details",ds.Tables[0]);
+            sqlCommand.Parameters.AddWithValue("@Details", ds.Tables[0]);
             sqlCommand.CommandTimeout = 999999999;
 
             try
@@ -45,9 +48,9 @@ namespace Infraestructura.Procesos
                 sqlCommand.Connection.Open();
                 sqlCommand.ExecuteNonQuery();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show("Error: "+ex);
+                MessageBox.Show("Error: " + ex);
             }
             finally
             {
@@ -62,7 +65,7 @@ namespace Infraestructura.Procesos
 
         public DataSet AlmacenarVentasdeServicio(DataSet ds)
         {
-            string Sp = "Sp_Insertar_Ventas_de_Servicio" ;
+            string Sp = "Sp_Insertar_Ventas_de_Servicio";
 
             SqlConnection sqlConnection = new SqlConnection();
             sqlConnection.ConnectionString = Infraestructura.Properties.Settings.Default.ConexionGT;
@@ -91,7 +94,7 @@ namespace Infraestructura.Procesos
 
                 if (DsGenerico.Tables[0].Rows.Count > 0)
                 {
-                    
+
                     for (int i = 0; i < CantidadSecciones; i++)
                     {
                         if (DsGenerico.Tables[i].Columns.Contains("NombreSeccion"))
@@ -119,7 +122,7 @@ namespace Infraestructura.Procesos
                             }
                             else
                             {
-                                
+
                                 DsGenerico.Tables.Remove(DsGenerico.Tables[i]);
                             }
                         }
@@ -314,6 +317,87 @@ namespace Infraestructura.Procesos
             }
         }
 
+
+        public DataSet AlmacenarOrdenCompraInfluencer(DataSet ds)
+        {
+            string comandoSQL = "Sp_Insertar_Orden_Compra_Influencer";
+
+            SqlConnection sqlConnection = new SqlConnection();
+            sqlConnection.ConnectionString = Properties.Settings.Default.ConexionGT;
+
+            SqlCommand sqlCommand = new SqlCommand(comandoSQL,sqlConnection);
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+
+            sqlCommand.Parameters.AddWithValue("@Details",ds.Tables[0]);
+            sqlCommand.CommandTimeout = 999999999;
+            //sqlCommand.Connection = sqlConnection;
+
+
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
+            sqlDataAdapter.SelectCommand = sqlCommand;
+
+            try
+            {
+                sqlConnection.Open();
+                sqlCommand.ExecuteNonQuery();
+                DataSet DsGenerico = new DataSet();
+
+                sqlDataAdapter.Fill(DsGenerico);
+
+
+                int CantidadSecciones = DsGenerico.Tables.Count;
+
+                if (DsGenerico.Tables[0].Rows.Count > 0)
+                {
+
+                    for (int i = 0; i < CantidadSecciones; i++)
+                    {
+                        if (DsGenerico.Tables[i].Columns.Contains("NombreSeccion"))
+                        {
+                            if (DsGenerico.Tables[i].Rows.Count > 0)
+                            {
+                                DsGenerico.Tables[i].TableName = DsGenerico.Tables[i].Rows[0]["NombreSeccion"].ToString();
+
+                                DsGenerico.Tables[i].Columns.Remove(DsGenerico.Tables[i].Columns[0]);
+                            }
+                            else
+                            {
+                                DsGenerico.Tables.Remove(DsGenerico.Tables[i]);
+                            }
+                        }
+
+
+                        if (DsGenerico.Tables[i].Columns.Contains("NombreSeccion2"))
+                        {
+                            if (DsGenerico.Tables[i].Rows.Count > 0)
+                            {
+
+                                DsGenerico.Tables[i].TableName = DsGenerico.Tables[i].Rows[0]["NombreSeccion2"].ToString();
+                                DsGenerico.Tables[i].Columns.Remove(DsGenerico.Tables[i].Columns[0]);
+                            }
+                            else
+                            {
+
+                                DsGenerico.Tables.Remove(DsGenerico.Tables[i]);
+                            }
+                        }
+                    }
+
+                }
+
+                return DsGenerico;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                sqlCommand.Connection.Close();
+            }
+
+        }
 
 
 
