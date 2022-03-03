@@ -32,6 +32,9 @@ namespace Infraestructura.Procesos
                 case 4:
                     consultaSql = "Sp_Actualizar_Integrado_OCInfluencer";
                     break;
+                case 5:
+                    consultaSql = "Sp_Actualizar_Integrado_OCLogistico";
+                    break;
             }
 
 
@@ -386,6 +389,89 @@ namespace Infraestructura.Procesos
                 }
 
                 return DsGenerico;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                sqlCommand.Connection.Close();
+            }
+
+        }
+
+
+        public DataSet AlmacenarOrdenCompraLogistico(DataSet ds)
+        {
+            string procedimiento = "Sp_Insertar_Orden_Compra_Logistico";
+
+            SqlConnection sqlConnection = new SqlConnection();
+            sqlConnection.ConnectionString = Properties.Settings.Default.ConexionGT;
+
+            SqlCommand sqlCommand = new SqlCommand(procedimiento, sqlConnection);
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+
+            sqlCommand.Parameters.AddWithValue("@Details",ds.Tables[0]);
+            sqlCommand.CommandTimeout = 999999999;
+
+            try
+            {
+                sqlConnection.Open();
+                sqlCommand.ExecuteNonQuery();
+
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
+                DataSet DsGenerico = new DataSet();
+
+                sqlDataAdapter.Fill(DsGenerico);
+
+
+
+                int CantidadSecciones = DsGenerico.Tables.Count;
+
+                if (DsGenerico.Tables[0].Rows.Count > 0)
+                {
+
+                    for (int i = 0; i < CantidadSecciones; i++)
+                    {
+                        if (DsGenerico.Tables[i].Columns.Contains("NombreSeccion"))
+                        {
+                            if (DsGenerico.Tables[i].Rows.Count > 0)
+                            {
+                                DsGenerico.Tables[i].TableName = DsGenerico.Tables[i].Rows[0]["NombreSeccion"].ToString();
+
+                                DsGenerico.Tables[i].Columns.Remove(DsGenerico.Tables[i].Columns[0]);
+                            }
+                            else
+                            {
+                                DsGenerico.Tables.Remove(DsGenerico.Tables[i]);
+                            }
+                        }
+
+
+                        if (DsGenerico.Tables[i].Columns.Contains("NombreSeccion2"))
+                        {
+                            if (DsGenerico.Tables[i].Rows.Count > 0)
+                            {
+
+                                DsGenerico.Tables[i].TableName = DsGenerico.Tables[i].Rows[0]["NombreSeccion2"].ToString();
+                                DsGenerico.Tables[i].Columns.Remove(DsGenerico.Tables[i].Columns[0]);
+                            }
+                            else
+                            {
+
+                                DsGenerico.Tables.Remove(DsGenerico.Tables[i]);
+                            }
+                        }
+                    }
+
+                }
+
+
+                return DsGenerico;
+
+
 
             }
             catch (Exception ex)

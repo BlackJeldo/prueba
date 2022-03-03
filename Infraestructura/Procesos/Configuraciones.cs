@@ -62,6 +62,7 @@ namespace Infraestructura.Procesos
         public string EndPointTercerosProveedor;
         public string EndPointTercerosComercianteCliente;
         public string EndPointOrdenCompraInfluencer;
+        public string EndPointOrdenCompraLogistico;
 
 
         public void Obtener()
@@ -134,6 +135,7 @@ namespace Infraestructura.Procesos
             EndPointOrdenCompraInfluencer = DsConfiguraciones.Tables[0].Rows[38]["valorTexto1"].ToString();
 
 
+            EndPointOrdenCompraLogistico = DsConfiguraciones.Tables[0].Rows[39]["valorTexto1"].ToString();
 
         }
     }
