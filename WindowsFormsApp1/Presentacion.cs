@@ -80,6 +80,11 @@ namespace WindowsFormsApp1
                         endpoint = _Configuraciones.EndPointOrdenServicioVentaInfluencer;
                         _WebRequestPostDirecto.RequestEndPoint(token6,endpoint);
 
+                    case "7":
+                        string token7 = _WebRequestPostDirecto.Token();
+                        endpoint = _Configuraciones.
+                        break;
+
                     default:
                         MessageBox.Show("El argumento enviado no fue valido");
                         break;

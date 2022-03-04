@@ -69,54 +69,60 @@ namespace Dominio.Conectores
 
             for (int i = 0; i<Json.value.Count; i++)
             {
-                _d1.Rows.Add(
-                "OrdenServicioVentaInfluencer",
-                Json.value[i].f310IdTipoDocto,
-                Json.value[i].f310ConsecDocto,
-                Json.value[i].f310Fecha,
-                Json.value[i].f310IdTercero,
-                Json.value[i].f310IdSucursalCli,
-                Json.value[i].f310IdTerceroVendedor,
-                Json.value[i].f310Referencia,
-                Json.value[i].f310IdCondPago,
-                Json.value[i].f310IdTipoCli,
-                Json.value[i].f310IdMonedaDocto,
-                Json.value[i].f310IndTasa,
-                Json.value[i].f310IdMonedaConv,
-                Json.value[i].f310TasaConv,
-                Json.value[i].f310IdMonedaLocal,
-                Json.value[i].f310TasaLocal,
-                Json.value[i].f310Notas,
-                Json.value[i].f310NumeroOrdenCompra,
+                for (int m = 0; m<Json.value.movementsServices.Count; m++ )
+                {
+                     _d1.Rows.Add(
+                    "OrdenServicioVentaInfluencer",
+                    Json.value[i].f310IdTipoDocto,
+                    Json.value[i].f310ConsecDocto,
+                    Json.value[i].f310Fecha,
+                    Json.value[i].f310IdTercero,
+                    Json.value[i].f310IdSucursalCli,
+                    Json.value[i].f310IdTerceroVendedor,
+                    Json.value[i].f310Referencia,
+                    Json.value[i].f310IdCondPago,
+                    Json.value[i].f310IdTipoCli,
+                    Json.value[i].f310IdMonedaDocto,
+                    Json.value[i].f310IndTasa,
+                    Json.value[i].f310IdMonedaConv,
+                    Json.value[i].f310TasaConv,
+                    Json.value[i].f310IdMonedaLocal,
+                    Json.value[i].f310TasaLocal,
+                    Json.value[i].f310Notas,
+                    Json.value[i].f310NumeroOrdenCompra,
 
-                "MovtoOrdenServicioVentaInfluencer",
-                Json.value[i].f310IdCo,
-                Json.value[i].f310IdTipoDocto,
-                Json.value[i].f310ConsecDocto,
-                Json.value[i].f318RowId,
-                Json.value[i].f318IdServicio,
-                Json.value[i].f318IdMotivo,
-                Json.value[i].f318IdCoMovto,
-                Json.value[i].f318IdUnMovto,
-                Json.value[i].f318IdCCostoMovto,
-                Json.value[i].f318IdTerceroMovto,
-                Json.value[i].f318IdSucursalCliente,
-                Json.value[i].f318IdSucursalProveedor,
-                Json.value[i].f318Cantidad,
-                Json.value[i].f318VlrBruto,
-                Json.value[i].f318VlrDscto1,
-                Json.value[i].f318VlrDscto2,
-                Json.value[i].f318Notas,
-                Json.value[i].f318Detalle,
-                Json.value[i].fnumeroReg,
-                Json.value[i].fsubtipoReg,
-                Json.value[i].ftipoReg,
-                Json.value[i].fversionReg,
-                Json.value[i].fcia,
+                    "MovtoOrdenServicioVentaInfluencer",
+                    Json.value[i].movementsServices[m].f310IdCo,
+                    Json.value[i].movementsServices[m].f310IdTipoDocto,
+                    Json.value[i].movementsServices[m].f310ConsecDocto,
+                    Json.value[i].movementsServices[m].f318RowId,
+                    Json.value[i].movementsServices[m].f318IdServicio,
+                    Json.value[i].movementsServices[m].f318IdMotivo,
+                    Json.value[i].movementsServices[m].f318IdCoMovto,
+                    Json.value[i].movementsServices[m].f318IdUnMovto,
+                    Json.value[i].movementsServices[m].f318IdCCostoMovto,
+                    Json.value[i].movementsServices[m].f318IdTerceroMovto,
+                    Json.value[i].movementsServices[m].f318IdSucursalCliente,
+                    Json.value[i].movementsServices[m].f318IdSucursalProveedor,
+                    Json.value[i].movementsServices[m].f318Cantidad,
+                    Json.value[i].movementsServices[m].f318VlrBruto,
+                    Json.value[i].movementsServices[m].f318VlrDscto1,
+                    Json.value[i].movementsServices[m].f318VlrDscto2,
+                    Json.value[i].movementsServices[m].f318Notas,
+                    Json.value[i].movementsServices[m].f318Detalle,
+                    Json.value[i].movementsServices[m].fnumeroReg,
+                    Json.value[i].movementsServices[m].fsubtipoReg,
+                    Json.value[i].movementsServices[m].ftipoReg,
+                    Json.value[i].movementsServices[m].fversionReg,
+                    Json.value[i].movementsServices[m].fcia,
 
-                Json.value[i].fnumeroReg,
-                Json.value[i].fconsecAutoReg
-                );
+                    Json.value[i].fnumeroReg,
+                    Json.value[i].fconsecAutoReg
+                    );
+
+                }
+
+                
 
             }
 

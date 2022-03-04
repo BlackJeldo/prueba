@@ -17,7 +17,7 @@ using System.Windows.Forms;
 
 namespace Dominio.Recursos
 {
-    public class WebRequestPostDirecto:Configuraciones
+    public class WebRequestPostDirecto : Configuraciones
     {
         ConectorVentasdeServicio _ConectorVentasdeServicio = new ConectorVentasdeServicio();
         ConectorTercerosClientes _ConectorTercerosClientes = new ConectorTercerosClientes();
@@ -25,6 +25,8 @@ namespace Dominio.Recursos
         ConectorOrdenCompraInfluencer _ConectorOrdenCompraInfluencer = new ConectorOrdenCompraInfluencer();
         ConectorOrdenCompraLogistico _ConectorOrdenCompraLogistico = new ConectorOrdenCompraLogistico();
         ConectorOrdenServicioVentaInfluencer _ConectorOrdenServicioVentaInfluencer = new ConectorOrdenServicioVentaInfluencer();
+        ConectorDocumentoVO _ConectorDocumentoVO = new ConectorDocumentoVO();
+
 
 
         BDConsultar _BdConsultar = new BDConsultar();
@@ -97,6 +99,10 @@ namespace Dominio.Recursos
                 {
 
                     _ConectorOrdenServicioVentaInfluencer.conectorOrdenServicioVentaInfluencer(respuesta);
+                }else if (endpoint.Equals(EndPointDocumentoVO))
+                {
+
+                    _ConectorDocumentoVO.conectorDocumentoVO(respuesta);
                 }
 
                 
