@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Conectores\ConectorOrdenCompraInfluencer.cs" />
     <Compile Include="Conectores\ConectorOrdenCompraLogistico.cs" />
+    <Compile Include="Conectores\ConectorOrdenServicioVentaInfluencer.cs" />
     <Compile Include="Conectores\ConectorTercerosClientes.cs" />
     <Compile Include="Conectores\ConectorTercerosProveedor.cs" />
     <Compile Include="Conectores\ConectorVentasdeServicio.cs" />

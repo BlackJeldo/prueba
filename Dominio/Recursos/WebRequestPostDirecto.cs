@@ -24,6 +24,7 @@ namespace Dominio.Recursos
         ConectorTercerosProveedor _ConectorTercerosProveedor = new ConectorTercerosProveedor();
         ConectorOrdenCompraInfluencer _ConectorOrdenCompraInfluencer = new ConectorOrdenCompraInfluencer();
         ConectorOrdenCompraLogistico _ConectorOrdenCompraLogistico = new ConectorOrdenCompraLogistico();
+        ConectorOrdenServicioVentaInfluencer _ConectorOrdenServicioVentaInfluencer = new ConectorOrdenServicioVentaInfluencer();
 
 
         BDConsultar _BdConsultar = new BDConsultar();
@@ -92,6 +93,10 @@ namespace Dominio.Recursos
                 {
 
                     _ConectorOrdenCompraLogistico.conectorOrdenCompraLogistico(respuesta);
+                }else if (endpoint.Equals(EndPointOrdenServicioVentaInfluencer))
+                {
+
+                    _ConectorOrdenServicioVentaInfluencer.conectorOrdenServicioVentaInfluencer(respuesta);
                 }
 
                 
