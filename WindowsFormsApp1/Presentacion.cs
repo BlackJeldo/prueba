@@ -74,15 +74,16 @@ namespace WindowsFormsApp1
                         _WebRequestPostDirecto.RequestEndPoint(token5,endpoint);
                         break;
 
-                    case "6":
-                        break;
+                    case "6":                       
                         string token6 = _WebRequestPostDirecto.Token();
                         endpoint = _Configuraciones.EndPointOrdenServicioVentaInfluencer;
                         _WebRequestPostDirecto.RequestEndPoint(token6,endpoint);
+                        break;
 
                     case "7":
                         string token7 = _WebRequestPostDirecto.Token();
-                        endpoint = _Configuraciones.
+                        endpoint = _Configuraciones.EndPointDocumentoVO;
+                        _WebRequestPostDirecto.RequestEndPoint(token7,endpoint);
                         break;
 
                     default:
