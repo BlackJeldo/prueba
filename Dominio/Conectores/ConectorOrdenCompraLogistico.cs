@@ -83,7 +83,7 @@ namespace Dominio.Conectores
 
             for (int i = 0; i< Json.values.Count; i++)
             {
-                for (int m=0; m<Json.values.movementLogisticService.Count; m++)
+                for (int m=0; m<Json.values[i].movementLogisticService.Count; m++)
                 {
                     _d1.Rows.Add(
                    "OrdenCompraLogistico",

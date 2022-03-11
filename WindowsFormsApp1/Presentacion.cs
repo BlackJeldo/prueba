@@ -65,6 +65,7 @@ namespace WindowsFormsApp1
                     case "4":
                         string token4 = _WebRequestPostDirecto.Token();
                         endpoint = _Configuraciones.EndPointOrdenCompraInfluencer;
+                        MessageBox.Show("End Point = "+endpoint);
                         _WebRequestPostDirecto.RequestEndPoint(token4,endpoint);
                         break;
 

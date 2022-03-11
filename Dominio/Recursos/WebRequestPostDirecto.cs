@@ -89,7 +89,7 @@ namespace Dominio.Recursos
                 }
                 else if (endpoint.Equals(EndPointOrdenCompraInfluencer))
                 {
-
+                    MessageBox.Show("Entro a ORDEN DE COMPRA INFLUENCER");
                     _ConectorOrdenCompraInfluencer.conectorOrdenCompraInfluencer(respuesta);
                 } else if (endpoint.Equals(EndPointOrdenCompraLogistico))
                 {

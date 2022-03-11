@@ -74,7 +74,7 @@ namespace Dominio.Conectores
 
             for (int i = 0; i<Json.value.Count; i++)
             {
-                for (int m =0; m<Json.value.voMovements.Count; m++)
+                for (int m =0; m<Json.value[i].voMovements.Count; m++)
                 {
                     _d1.Rows.Add(
                     "DocumentoVO",
