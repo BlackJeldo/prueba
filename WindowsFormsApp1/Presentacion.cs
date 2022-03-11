@@ -72,6 +72,7 @@ namespace WindowsFormsApp1
                     case "5":
                         string token5 = _WebRequestPostDirecto.Token();
                         endpoint = _Configuraciones.EndPointOrdenCompraLogistico;
+                        MessageBox.Show("EndPoint = "+endpoint);
                         _WebRequestPostDirecto.RequestEndPoint(token5,endpoint);
                         break;
 

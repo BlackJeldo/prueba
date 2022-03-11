@@ -423,14 +423,20 @@ namespace Infraestructura.Procesos
             sqlCommand.Parameters.AddWithValue("@Details",ds.Tables[0]);
             sqlCommand.CommandTimeout = 999999999;
 
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
+            sqlDataAdapter.SelectCommand = sqlCommand;
+
             try
             {
                 sqlConnection.Open();
                 sqlCommand.ExecuteNonQuery();
 
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
+                MessageBox.Show("Ejecuto el Query");
+
+                
                 DataSet DsGenerico = new DataSet();
 
+                
                 sqlDataAdapter.Fill(DsGenerico);
 
 
@@ -506,12 +512,15 @@ namespace Infraestructura.Procesos
             sqlCommand.CommandTimeout = 999999999;
             sqlCommand.Parameters.AddWithValue("@Details",ds.Tables[0]);
 
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
+            sqlDataAdapter.SelectCommand = sqlCommand;
+
             try
             {
                 sqlConnection.Open();
                 sqlCommand.ExecuteNonQuery();
 
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
+                MessageBox.Show("Ejecuto el Query");
                 DataSet DsGenerico = new DataSet();
 
                 sqlDataAdapter.Fill(DsGenerico);

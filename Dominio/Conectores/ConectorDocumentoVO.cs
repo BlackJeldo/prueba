@@ -32,45 +32,45 @@ namespace Dominio.Conectores
             _d1.Columns.Add("f350RecalcularRx");
 
             _d1.Columns.Add("NombreSeccion2");
-            _d1.Columns.Add("f350IdCo");
-            _d1.Columns.Add("f350IdTipoDocto");
-            _d1.Columns.Add("f350ConsecDocto");
-            _d1.Columns.Add("f351IdAuxiliar");
-            _d1.Columns.Add("f351IdTercero");
-            _d1.Columns.Add("f351IdCoMov");
-            _d1.Columns.Add("f351IdUn");
-            _d1.Columns.Add("f351IdCcosto");
-            _d1.Columns.Add("f351IdFe");
-            _d1.Columns.Add("f351ValorDb");
-            _d1.Columns.Add("f351ValorCr");
-            _d1.Columns.Add("f351ValorDbAlt");
-            _d1.Columns.Add("f351ValorCrAlt");
-            _d1.Columns.Add("f351BaseGravable");
+            _d1.Columns.Add("f350IdCo2");
+            _d1.Columns.Add("f350IdTipoDocto2");
+            _d1.Columns.Add("f350ConsecDocto2");
+            _d1.Columns.Add("f351IdAuxiliar2");
+            _d1.Columns.Add("f351IdTercero2");
+            _d1.Columns.Add("f351IdCoMov2");
+            _d1.Columns.Add("f351IdUn2");
+            _d1.Columns.Add("f351IdCcosto2");
+            _d1.Columns.Add("f351IdFe2");
             _d1.Columns.Add("f351ValorDb2");
             _d1.Columns.Add("f351ValorCr2");
             _d1.Columns.Add("f351ValorDbAlt2");
             _d1.Columns.Add("f351ValorCrAlt2");
             _d1.Columns.Add("f351BaseGravable2");
-            _d1.Columns.Add("f351ValorDb3");
-            _d1.Columns.Add("f351ValorCr3");
-            _d1.Columns.Add("f351ValorDbAlt3");
-            _d1.Columns.Add("f351ValorCrAlt3");
-            _d1.Columns.Add("f351BaseGravable3");
-            _d1.Columns.Add("f351DoctoBanco");
-            _d1.Columns.Add("f351NroDoctoBanco");
-            _d1.Columns.Add("f351Notas");
-            _d1.Columns.Add("fnumeroReg");
-            _d1.Columns.Add("fsubtipoReg");
-            _d1.Columns.Add("ftipoReg");
-            _d1.Columns.Add("fversionReg");
-            _d1.Columns.Add("fcia");
+            _d1.Columns.Add("f351ValorDb22");
+            _d1.Columns.Add("f351ValorCr22");
+            _d1.Columns.Add("f351ValorDbAlt22");
+            _d1.Columns.Add("f351ValorCrAlt22");
+            _d1.Columns.Add("f351BaseGravable22");
+            _d1.Columns.Add("f351ValorDb32");
+            _d1.Columns.Add("f351ValorCr32");
+            _d1.Columns.Add("f351ValorDbAlt32");
+            _d1.Columns.Add("f351ValorCrAlt32");
+            _d1.Columns.Add("f351BaseGravable32");
+            _d1.Columns.Add("f351DoctoBanco2");
+            _d1.Columns.Add("f351NroDoctoBanco2");
+            _d1.Columns.Add("f351Notas2");
+            _d1.Columns.Add("fnumeroReg2");
+            _d1.Columns.Add("fsubtipoReg2");
+            _d1.Columns.Add("ftipoReg2");
+            _d1.Columns.Add("fversionReg2");
+            _d1.Columns.Add("fcia2");
 
-            _d1.Columns.Add("fnumeroReg");
-            _d1.Columns.Add("fsubtipoReg");
-            _d1.Columns.Add("ftipoReg");
-            _d1.Columns.Add("fversionReg");
-            _d1.Columns.Add("fcia");
-            _d1.Columns.Add("fconsecAutoReg");
+            _d1.Columns.Add("fnumeroReg3");
+            _d1.Columns.Add("fsubtipoReg3");
+            _d1.Columns.Add("ftipoReg3");
+            _d1.Columns.Add("fversionReg3");
+            _d1.Columns.Add("fcia3");
+            _d1.Columns.Add("fconsecAutoReg3");
 
             for (int i = 0; i<Json.value.Count; i++)
             {
@@ -137,40 +137,43 @@ namespace Dominio.Conectores
             DataSet dsOriginal = new DataSet();
             dsOriginal.Tables.Add(_d1);
 
+            MessageBox.Show("Registros originales = "+dsOriginal.Tables[0].Rows.Count);
             AccionesBD accionesBD = new AccionesBD();
             DataSet dsProcesado = new DataSet();
 
             dsProcesado = accionesBD.AlmacenarDocumentoVO(dsOriginal);
 
-
-            if (dsProcesado.Tables[0].Rows.Count > 0)
-            {
-
-                ConsumoGT _consumo = new ConsumoGT();
-                string rutaplano7 = RutaPlanos;
-                string respuestaSiesa = _consumo.Insertar(dsProcesado, "TERCERO_CLIENTES", 120951, rutaplano7, "1");
-
-                MessageBox.Show("Respuesta Siesa: " + respuestaSiesa);
-
-                if (respuestaSiesa.Equals("Importacion exitosa"))
-                {
-                    //MessageBox.Show("Filas procesadas: "+ dsProcesado.Tables[0].Rows.Count);
-
-                    //for (int i = 0; i<dsProcesado.Tables[0].Rows.Count; i++)
-                    //{
-                    //    MessageBox.Show("Nit: "+dsProcesado.Tables[0].Rows[i]["f200Nit"]+" Tipo Ident: "+ dsProcesado.Tables[0].Rows[i]["f200IdTipoIdent"]);
-                    //}
+            MessageBox.Show("Registros procesados = " + dsProcesado.Tables[0].Rows.Count);
 
 
-                    accionesBD.ActualizarIntegrado(7, dsProcesado);
-                    //Correo correo = new Correo();
+            //if (dsProcesado.Tables[0].Rows.Count > 0)
+            //{
 
-                    //for (int i = 0; i < dsProcesado.Tables[0].Rows.Count; i++)
-                    //{
-                    //    correo.EnviarCorreo("jerazo@generictransfer.com,contabilidad@anurotec.com", "GTINTEGRATION: CREACION DE TERCERO CLIENTE", "Se creó el tercero con el Nit " + dsProcesado.Tables[0].Rows[i]["f200Nit"] + "  y tipo de identidad: " + dsProcesado.Tables[0].Rows[i]["f200IdTipoIdent"] + "\n" + "Nota: El estado actual del tercero es INACTIVO");
-                    //}
-                }
-            }
+            //    ConsumoGT _consumo = new ConsumoGT();
+            //    string rutaplano7 = RutaPlanos;
+            //    string respuestaSiesa = _consumo.Insertar(dsProcesado, "TERCERO_CLIENTES", 120951, rutaplano7, "1");
+
+            //    MessageBox.Show("Respuesta Siesa: " + respuestaSiesa);
+
+            //    if (respuestaSiesa.Equals("Importacion exitosa"))
+            //    {
+            //        //MessageBox.Show("Filas procesadas: "+ dsProcesado.Tables[0].Rows.Count);
+
+            //        //for (int i = 0; i<dsProcesado.Tables[0].Rows.Count; i++)
+            //        //{
+            //        //    MessageBox.Show("Nit: "+dsProcesado.Tables[0].Rows[i]["f200Nit"]+" Tipo Ident: "+ dsProcesado.Tables[0].Rows[i]["f200IdTipoIdent"]);
+            //        //}
+
+
+            //        accionesBD.ActualizarIntegrado(7, dsProcesado);
+            //        //Correo correo = new Correo();
+
+            //        //for (int i = 0; i < dsProcesado.Tables[0].Rows.Count; i++)
+            //        //{
+            //        //    correo.EnviarCorreo("jerazo@generictransfer.com,contabilidad@anurotec.com", "GTINTEGRATION: CREACION DE TERCERO CLIENTE", "Se creó el tercero con el Nit " + dsProcesado.Tables[0].Rows[i]["f200Nit"] + "  y tipo de identidad: " + dsProcesado.Tables[0].Rows[i]["f200IdTipoIdent"] + "\n" + "Nota: El estado actual del tercero es INACTIVO");
+            //        //}
+            //    }
+            //}
 
 
 

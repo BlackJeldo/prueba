@@ -40,36 +40,38 @@ namespace Dominio.Conectores
             _d1.Columns.Add("f310NumeroOrdenCompra");
 
             _d1.Columns.Add("NombreSeccion2");
-            _d1.Columns.Add("f310IdCo");
-            _d1.Columns.Add("f310IdTipoDocto");
-            _d1.Columns.Add("f310ConsecDocto");
-            _d1.Columns.Add("f318RowId");
-            _d1.Columns.Add("f318IdServicio");
-            _d1.Columns.Add("f318IdMotivo");
-            _d1.Columns.Add("f318IdCoMovto");
-            _d1.Columns.Add("f318IdUnMovto");
-            _d1.Columns.Add("f318IdCCostoMovto");
-            _d1.Columns.Add("f318IdTerceroMovto");
-            _d1.Columns.Add("f318IdSucursalCliente");
-            _d1.Columns.Add("f318IdSucursalProveedor");
-            _d1.Columns.Add("f318Cantidad");
-            _d1.Columns.Add("f318VlrBruto");
-            _d1.Columns.Add("f318VlrDscto1");
-            _d1.Columns.Add("f318VlrDscto2");
-            _d1.Columns.Add("f318Notas");
-            _d1.Columns.Add("f318Detalle");
-            _d1.Columns.Add("fnumeroReg");
-            _d1.Columns.Add("fsubtipoReg");
-            _d1.Columns.Add("ftipoReg");
-            _d1.Columns.Add("fversionReg");
-            _d1.Columns.Add("fcia");
+            _d1.Columns.Add("f310IdCo2");
+            _d1.Columns.Add("f310IdTipoDocto2");
+            _d1.Columns.Add("f310ConsecDocto2");
+            _d1.Columns.Add("f318RowId2");
+            _d1.Columns.Add("f318IdServicio2");
+            _d1.Columns.Add("f318IdMotivo2");
+            _d1.Columns.Add("f318IdCoMovto2");
+            _d1.Columns.Add("f318IdUnMovto2");
+            _d1.Columns.Add("f318IdCCostoMovto2");
+            _d1.Columns.Add("f318IdTerceroMovto2");
+            _d1.Columns.Add("f318IdSucursalCliente2");
+            _d1.Columns.Add("f318IdSucursalProveedor2");
+            _d1.Columns.Add("f318Cantidad2");
+            _d1.Columns.Add("f318VlrBruto2");
+            _d1.Columns.Add("f318VlrDscto12");
+            _d1.Columns.Add("f318VlrDscto22");
+            _d1.Columns.Add("f318Notas2");
+            _d1.Columns.Add("f318Detalle2");
+            _d1.Columns.Add("fnumeroReg2");
+            _d1.Columns.Add("fsubtipoReg2");
+            _d1.Columns.Add("ftipoReg2");
+            _d1.Columns.Add("fversionReg2");
+            _d1.Columns.Add("fcia2");
 
-            _d1.Columns.Add("fnumeroReg");
-            _d1.Columns.Add("fconsecAutoReg");
+            _d1.Columns.Add("fnumeroReg3");
+            _d1.Columns.Add("fconsecAutoReg3");
+
+            MessageBox.Show("Se agregaron columnas");
 
             for (int i = 0; i<Json.value.Count; i++)
             {
-                for (int m = 0; m<Json.value.movementsServices.Count; m++ )
+                for (int m = 0; m<Json.value[i].movementsServices.Count; m++ )
                 {
                      _d1.Rows.Add(
                     "OrdenServicioVentaInfluencer",
@@ -131,39 +133,41 @@ namespace Dominio.Conectores
 
             DsGenerico.Tables.Add(_d1);
 
+            MessageBox.Show("Registros originales = "+DsGenerico.Tables[0].Rows.Count);
             DataSet dsProcesado = new DataSet();
 
             dsProcesado = accionesBD.AlmacenarOrdenServicioVentaInfluencer(DsGenerico);
+            MessageBox.Show("Registros procesados = " + dsProcesado.Tables[0].Rows.Count);
 
 
-            if (dsProcesado.Tables[0].Rows.Count > 0)
-            {
+            //if (dsProcesado.Tables[0].Rows.Count > 0)
+            //{
 
-                ConsumoGT _consumo = new ConsumoGT();
-                string rutaplano7 = RutaPlanos;
-                string respuestaSiesa = _consumo.Insertar(dsProcesado, "TERCERO_CLIENTES", 120951, rutaplano7, "1");
+            //    ConsumoGT _consumo = new ConsumoGT();
+            //    string rutaplano7 = RutaPlanos;
+            //    string respuestaSiesa = _consumo.Insertar(dsProcesado, "TERCERO_CLIENTES", 120951, rutaplano7, "1");
 
-                MessageBox.Show("Respuesta Siesa: " + respuestaSiesa);
+            //    MessageBox.Show("Respuesta Siesa: " + respuestaSiesa);
 
-                if (respuestaSiesa.Equals("Importacion exitosa"))
-                {
-                    //MessageBox.Show("Filas procesadas: "+ dsProcesado.Tables[0].Rows.Count);
+            //    if (respuestaSiesa.Equals("Importacion exitosa"))
+            //    {
+            //        //MessageBox.Show("Filas procesadas: "+ dsProcesado.Tables[0].Rows.Count);
 
-                    //for (int i = 0; i<dsProcesado.Tables[0].Rows.Count; i++)
-                    //{
-                    //    MessageBox.Show("Nit: "+dsProcesado.Tables[0].Rows[i]["f200Nit"]+" Tipo Ident: "+ dsProcesado.Tables[0].Rows[i]["f200IdTipoIdent"]);
-                    //}
+            //        //for (int i = 0; i<dsProcesado.Tables[0].Rows.Count; i++)
+            //        //{
+            //        //    MessageBox.Show("Nit: "+dsProcesado.Tables[0].Rows[i]["f200Nit"]+" Tipo Ident: "+ dsProcesado.Tables[0].Rows[i]["f200IdTipoIdent"]);
+            //        //}
 
 
-                    accionesBD.ActualizarIntegrado(6, dsProcesado);
-                    //Correo correo = new Correo();
+            //        accionesBD.ActualizarIntegrado(6, dsProcesado);
+            //        //Correo correo = new Correo();
 
-                    //for (int i = 0; i < dsProcesado.Tables[0].Rows.Count; i++)
-                    //{
-                    //    correo.EnviarCorreo("jerazo@generictransfer.com,contabilidad@anurotec.com", "GTINTEGRATION: CREACION DE TERCERO CLIENTE", "Se creó el tercero con el Nit " + dsProcesado.Tables[0].Rows[i]["f200Nit"] + "  y tipo de identidad: " + dsProcesado.Tables[0].Rows[i]["f200IdTipoIdent"] + "\n" + "Nota: El estado actual del tercero es INACTIVO");
-                    //}
-                }
-            }
+            //        //for (int i = 0; i < dsProcesado.Tables[0].Rows.Count; i++)
+            //        //{
+            //        //    correo.EnviarCorreo("jerazo@generictransfer.com,contabilidad@anurotec.com", "GTINTEGRATION: CREACION DE TERCERO CLIENTE", "Se creó el tercero con el Nit " + dsProcesado.Tables[0].Rows[i]["f200Nit"] + "  y tipo de identidad: " + dsProcesado.Tables[0].Rows[i]["f200IdTipoIdent"] + "\n" + "Nota: El estado actual del tercero es INACTIVO");
+            //        //}
+            //    }
+            //}
 
         }
     }

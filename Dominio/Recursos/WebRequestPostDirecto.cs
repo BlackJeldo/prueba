@@ -89,15 +89,15 @@ namespace Dominio.Recursos
                 }
                 else if (endpoint.Equals(EndPointOrdenCompraInfluencer))
                 {
-                    MessageBox.Show("Entro a ORDEN DE COMPRA INFLUENCER");
+                    
                     _ConectorOrdenCompraInfluencer.conectorOrdenCompraInfluencer(respuesta);
                 } else if (endpoint.Equals(EndPointOrdenCompraLogistico))
                 {
-
+                    
                     _ConectorOrdenCompraLogistico.conectorOrdenCompraLogistico(respuesta);
                 }else if (endpoint.Equals(EndPointOrdenServicioVentaInfluencer))
                 {
-
+                    MessageBox.Show("Entro a ORDEN SERVICIO VENTA INFLUENCER");
                     _ConectorOrdenServicioVentaInfluencer.conectorOrdenServicioVentaInfluencer(respuesta);
                 }else if (endpoint.Equals(EndPointDocumentoVO))
                 {

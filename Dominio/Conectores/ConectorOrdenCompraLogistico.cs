@@ -46,103 +46,103 @@ namespace Dominio.Conectores
             _d1.Columns.Add("f310ConsecDoctoCdp");
 
             _d1.Columns.Add("NombreSeccion2");
-            _d1.Columns.Add("f310IdCo");
-            _d1.Columns.Add("f310IdTipoDocto");
-            _d1.Columns.Add("f310ConsecDocto");
-            _d1.Columns.Add("f318RowId");
-            _d1.Columns.Add("f318IdServicio");
-            _d1.Columns.Add("f318IdMotivo");
-            _d1.Columns.Add("f318IdCoMovto");
-            _d1.Columns.Add("f318IdUnMovto");
-            _d1.Columns.Add("f318IdCCostoMovto");
-            _d1.Columns.Add("f318IdTerceroMovto");
-            _d1.Columns.Add("f318IdSucursalCliente");
-            _d1.Columns.Add("f318IdSucursalProveedor");
-            _d1.Columns.Add("f318Cantidad");
-            _d1.Columns.Add("f318VlrBruto");
-            _d1.Columns.Add("f318VlrDscto1");
-            _d1.Columns.Add("f318VlrDscto2");
-            _d1.Columns.Add("f318Notas");
-            _d1.Columns.Add("f318Detalle");
-            _d1.Columns.Add("fnumeroReg");
-            _d1.Columns.Add("fsubtipoReg");
-            _d1.Columns.Add("ftipoReg");
-            _d1.Columns.Add("fversionReg");
-            _d1.Columns.Add("fcia");
+            _d1.Columns.Add("f310IdCo2");
+            _d1.Columns.Add("f310IdTipoDocto2");
+            _d1.Columns.Add("f310ConsecDocto2");
+            _d1.Columns.Add("f318RowId2");
+            _d1.Columns.Add("f318IdServicio2");
+            _d1.Columns.Add("f318IdMotivo2");
+            _d1.Columns.Add("f318IdCoMovto2");
+            _d1.Columns.Add("f318IdUnMovto2");
+            _d1.Columns.Add("f318IdCCostoMovto2");
+            _d1.Columns.Add("f318IdTerceroMovto2");
+            _d1.Columns.Add("f318IdSucursalCliente2");
+            _d1.Columns.Add("f318IdSucursalProveedor2");
+            _d1.Columns.Add("f318Cantidad2");
+            _d1.Columns.Add("f318VlrBruto2");
+            _d1.Columns.Add("f318VlrDscto12");
+            _d1.Columns.Add("f318VlrDscto22");
+            _d1.Columns.Add("f318Notas2");
+            _d1.Columns.Add("f318Detalle2");
+            _d1.Columns.Add("fnumeroReg2");
+            _d1.Columns.Add("fsubtipoReg2");
+            _d1.Columns.Add("ftipoReg2");
+            _d1.Columns.Add("fversionReg2");
+            _d1.Columns.Add("fcia2");
 
-            _d1.Columns.Add("fnumeroReg");
-            _d1.Columns.Add("fsubtipoReg");
-            _d1.Columns.Add("ftipoReg");
-            _d1.Columns.Add("fversionReg");
-            _d1.Columns.Add("fcia");
-            _d1.Columns.Add("fliquidaImpuesto");
-            _d1.Columns.Add("fconsecAutoReg");
-
-            
+            _d1.Columns.Add("fnumeroReg3");
+            _d1.Columns.Add("fsubtipoReg3");
+            _d1.Columns.Add("ftipoReg3");
+            _d1.Columns.Add("fversionReg3");
+            _d1.Columns.Add("fcia3");
+            _d1.Columns.Add("fliquidaImpuesto3");
+            _d1.Columns.Add("fconsecAutoReg3");
 
 
-            for (int i = 0; i< Json.values.Count; i++)
+
+            MessageBox.Show("Agrego las columnas");
+            for (int i = 0; i< Json.value.Count; i++)
             {
-                for (int m=0; m<Json.values[i].movementLogisticService.Count; m++)
+                for (int m=0; m<Json.value[i].movementLogisticService.Count; m++)
                 {
                     _d1.Rows.Add(
                    "OrdenCompraLogistico",
-                   Json.values[i].f310IdCo,
-                   Json.values[i].f310IdTipoDocto,
-                   Json.values[i].f310ConsecDocto,
-                   Json.values[i].f310Fecha,
-                   Json.values[i].f310IdTercero,
-                   Json.values[i].f310IdSucursalProv,
-                   Json.values[i].f310IdTerceroComprador,
-                   Json.values[i].f310IdClaseDocto,
-                   Json.values[i].f310IndEstado,
-                   Json.values[i].f310IndImpresion,
-                   Json.values[i].f310Referencia,
-                   Json.values[i].f310IdCondPago,
-                   Json.values[i].f310IdTipoProv,
-                   Json.values[i].f310IdMonedaDocto,
-                   Json.values[i].f310IdMonedaConv,
-                   Json.values[i].f310TasaConv,
-                   Json.values[i].f310IdMonedaLocal,
-                   Json.values[i].f310TasaLocal,
-                   Json.values[i].f310Notas,
-                   Json.values[i].f310IdMandato,
-                   Json.values[i].f310IdCoDoctoCdp,
-                   Json.values[i].f310IdTipoDoctoCdp,
-                   Json.values[i].f310ConsecDoctoCdp,
+                   Json.value[i].f310IdCo,
+                   Json.value[i].f310IdTipoDocto,
+                   Json.value[i].f310ConsecDocto,
+                   Json.value[i].f310Fecha,
+                   Json.value[i].f310IdTercero,
+                   Json.value[i].f310IdSucursalProv,
+                   Json.value[i].f310IdTerceroComprador,
+                   Json.value[i].f310IdClaseDocto,
+                   Json.value[i].f310IndEstado,
+                   Json.value[i].f310IndImpresion,
+                   Json.value[i].f310Referencia,
+                   Json.value[i].f310IdCondPago,
+                   Json.value[i].f310IdTipoProv,
+                   Json.value[i].f310IdMonedaDocto,
+                   Json.value[i].f310IdMonedaConv,
+                   Json.value[i].f310TasaConv,
+                   Json.value[i].f310IdMonedaLocal,
+                   Json.value[i].f310TasaLocal,
+                   Json.value[i].f310Notas,
+                   Json.value[i].f310IdMandato,
+                   Json.value[i].f310IdCoDoctoCdp,
+                   Json.value[i].f310IdTipoDoctoCdp,
+                   Json.value[i].f310ConsecDoctoCdp,
 
                    "MovtoOrdenCompraLogistico",
-                   Json.values[i].movementLogisticService[m].f310IdCo,
-                   Json.values[i].movementLogisticService[m].f310IdTipoDocto,
-                   Json.values[i].movementLogisticService[m].f310ConsecDocto,
-                   Json.values[i].movementLogisticService[m].f318RowId,
-                   Json.values[i].movementLogisticService[m].f318IdServicio,
-                   Json.values[i].movementLogisticService[m].f318IdMotivo,
-                   Json.values[i].movementLogisticService[m].f318IdCoMovto,
-                   Json.values[i].movementLogisticService[m].f318IdUnMovto,
-                   Json.values[i].movementLogisticService[m].f318IdCCostoMovto,
-                   Json.values[i].movementLogisticService[m].f318IdTerceroMovto,
-                   Json.values[i].movementLogisticService[m].f318IdSucursalCliente,
-                   Json.values[i].movementLogisticService[m].f318IdSucursalProveedor,
-                   Json.values[i].movementLogisticService[m].f318Cantidad,
-                   Json.values[i].movementLogisticService[m].f318VlrBruto,
-                   Json.values[i].movementLogisticService[m].f318VlrDscto1,
-                   Json.values[i].movementLogisticService[m].f318VlrDscto2,
-                   Json.values[i].movementLogisticService[m].f318Notas,
-                   Json.values[i].movementLogisticService[m].f318Detalle,
-                   Json.values[i].movementLogisticService[m].fnumeroReg,
-                   Json.values[i].movementLogisticService[m].fsubtipoReg,
-                   Json.values[i].movementLogisticService[m].ftipoReg,
-                   Json.values[i].movementLogisticService[m].fversionReg,
-                   Json.values[i].movementLogisticService[m].fcia,
+                   Json.value[i].movementLogisticService[m].f310IdCo,
+                   Json.value[i].movementLogisticService[m].f310IdTipoDocto,
+                   Json.value[i].movementLogisticService[m].f310ConsecDocto,
+                   Json.value[i].movementLogisticService[m].f318RowId,
+                   Json.value[i].movementLogisticService[m].f318IdServicio,
+                   Json.value[i].movementLogisticService[m].f318IdMotivo,
+                   Json.value[i].movementLogisticService[m].f318IdCoMovto,
+                   Json.value[i].movementLogisticService[m].f318IdUnMovto,
+                   Json.value[i].movementLogisticService[m].f318IdCCostoMovto,
+                   Json.value[i].movementLogisticService[m].f318IdTerceroMovto,
+                   Json.value[i].movementLogisticService[m].f318IdSucursalCliente,
+                   Json.value[i].movementLogisticService[m].f318IdSucursalProveedor,
+                   Json.value[i].movementLogisticService[m].f318Cantidad,
+                   Json.value[i].movementLogisticService[m].f318VlrBruto,
+                   Json.value[i].movementLogisticService[m].f318VlrDscto1,
+                   Json.value[i].movementLogisticService[m].f318VlrDscto2,
+                   Json.value[i].movementLogisticService[m].f318Notas,
+                   Json.value[i].movementLogisticService[m].f318Detalle,
+                   Json.value[i].movementLogisticService[m].fnumeroReg,
+                   Json.value[i].movementLogisticService[m].fsubtipoReg,
+                   Json.value[i].movementLogisticService[m].ftipoReg,
+                   Json.value[i].movementLogisticService[m].fversionReg,
+                   Json.value[i].movementLogisticService[m].fcia,
 
-                   Json.values[i].fnumeroReg,
-                   Json.values[i].fsubtipoReg,
-                   Json.values[i].ftipoReg,
-                   Json.values[i].fversionReg,
-                   Json.values[i].fcia,
-                   Json.values[i].fliquidaImpuesto,
-                   Json.values[i].fconsecAutoReg
+                   Json.value[i].fnumeroReg,
+                   Json.value[i].fsubtipoReg,
+                   Json.value[i].ftipoReg,
+                   Json.value[i].fversionReg,
+                   Json.value[i].fcia,
+                   Json.value[i].fliquidaImpuesto,
+                   Json.value[i].fconsecAutoReg
                    );
                 }
             }
@@ -150,41 +150,43 @@ namespace Dominio.Conectores
             DataSet dsOriginal = new DataSet();
 
             dsOriginal.Tables.Add(_d1);
+            MessageBox.Show("Registros Originales = "+dsOriginal.Tables[0].Rows.Count);
 
             AccionesBD accionesBD = new AccionesBD();
 
             DataSet dsProcesado = new DataSet();
             dsProcesado = accionesBD.AlmacenarOrdenCompraLogistico(dsOriginal);
+            MessageBox.Show("Registros Procesados = "+dsProcesado.Tables[0].Rows.Count);
 
 
-            if (dsProcesado.Tables[0].Rows.Count > 0)
-            {
+            //if (dsProcesado.Tables[0].Rows.Count > 0)
+            //{
 
-                ConsumoGT _consumo = new ConsumoGT();
-                string rutaplano5 = RutaPlanos;
-                string respuestaSiesa = _consumo.Insertar(dsProcesado, "TERCERO_CLIENTES", 120951, rutaplano5, "1");
+            //    ConsumoGT _consumo = new ConsumoGT();
+            //    string rutaplano5 = RutaPlanos;
+            //    string respuestaSiesa = _consumo.Insertar(dsProcesado, "TERCERO_CLIENTES", 120951, rutaplano5, "1");
 
-                MessageBox.Show("Respuesta Siesa: " + respuestaSiesa);
+            //    MessageBox.Show("Respuesta Siesa: " + respuestaSiesa);
 
-                if (respuestaSiesa.Equals("Importacion exitosa"))
-                {
-                    //MessageBox.Show("Filas procesadas: "+ dsProcesado.Tables[0].Rows.Count);
+            //    if (respuestaSiesa.Equals("Importacion exitosa"))
+            //    {
+            //        //MessageBox.Show("Filas procesadas: "+ dsProcesado.Tables[0].Rows.Count);
 
-                    //for (int i = 0; i<dsProcesado.Tables[0].Rows.Count; i++)
-                    //{
-                    //    MessageBox.Show("Nit: "+dsProcesado.Tables[0].Rows[i]["f200Nit"]+" Tipo Ident: "+ dsProcesado.Tables[0].Rows[i]["f200IdTipoIdent"]);
-                    //}
+            //        //for (int i = 0; i<dsProcesado.Tables[0].Rows.Count; i++)
+            //        //{
+            //        //    MessageBox.Show("Nit: "+dsProcesado.Tables[0].Rows[i]["f200Nit"]+" Tipo Ident: "+ dsProcesado.Tables[0].Rows[i]["f200IdTipoIdent"]);
+            //        //}
 
 
-                    accionesBD.ActualizarIntegrado(5, dsProcesado);
-                    //Correo correo = new Correo();
+            //        accionesBD.ActualizarIntegrado(5, dsProcesado);
+            //        //Correo correo = new Correo();
 
-                    //for (int i = 0; i < dsProcesado.Tables[0].Rows.Count; i++)
-                    //{
-                    //    correo.EnviarCorreo("jerazo@generictransfer.com,contabilidad@anurotec.com", "GTINTEGRATION: CREACION DE TERCERO CLIENTE", "Se creó el tercero con el Nit " + dsProcesado.Tables[0].Rows[i]["f200Nit"] + "  y tipo de identidad: " + dsProcesado.Tables[0].Rows[i]["f200IdTipoIdent"] + "\n" + "Nota: El estado actual del tercero es INACTIVO");
-                    //}
-                }
-            }
+            //        //for (int i = 0; i < dsProcesado.Tables[0].Rows.Count; i++)
+            //        //{
+            //        //    correo.EnviarCorreo("jerazo@generictransfer.com,contabilidad@anurotec.com", "GTINTEGRATION: CREACION DE TERCERO CLIENTE", "Se creó el tercero con el Nit " + dsProcesado.Tables[0].Rows[i]["f200Nit"] + "  y tipo de identidad: " + dsProcesado.Tables[0].Rows[i]["f200IdTipoIdent"] + "\n" + "Nota: El estado actual del tercero es INACTIVO");
+            //        //}
+            //    }
+            //}
 
 
 
