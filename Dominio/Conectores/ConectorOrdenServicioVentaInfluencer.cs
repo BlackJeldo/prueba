@@ -76,7 +76,7 @@ namespace Dominio.Conectores
                      _d1.Rows.Add(
                     "OrdenServicioVentaInfluencer",
                     Json.value[i].f310IdTipoDocto,
-                    Json.value[i].f310ConsecDocto,
+                    i,
                     Json.value[i].f310Fecha,
                     Json.value[i].f310IdTercero,
                     Json.value[i].f310IdSucursalCli,
@@ -96,7 +96,7 @@ namespace Dominio.Conectores
                     "MovtoOrdenServicioVentaInfluencer",
                     Json.value[i].movementsServices[m].f310IdCo,
                     Json.value[i].movementsServices[m].f310IdTipoDocto,
-                    Json.value[i].movementsServices[m].f310ConsecDocto,
+                    i,
                     Json.value[i].movementsServices[m].f318RowId,
                     Json.value[i].movementsServices[m].f318IdServicio,
                     Json.value[i].movementsServices[m].f318IdMotivo,
