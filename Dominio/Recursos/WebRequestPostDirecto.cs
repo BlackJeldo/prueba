@@ -97,11 +97,11 @@ namespace Dominio.Recursos
                     _ConectorOrdenCompraLogistico.conectorOrdenCompraLogistico(respuesta);
                 }else if (endpoint.Equals(EndPointOrdenServicioVentaInfluencer))
                 {
-                    MessageBox.Show("Entro a ORDEN SERVICIO VENTA INFLUENCER");
+                    
                     _ConectorOrdenServicioVentaInfluencer.conectorOrdenServicioVentaInfluencer(respuesta);
                 }else if (endpoint.Equals(EndPointDocumentoVO))
                 {
-
+                    MessageBox.Show("Entro a DOCUMENTO VO");
                     _ConectorDocumentoVO.conectorDocumentoVO(respuesta);
                 }
 

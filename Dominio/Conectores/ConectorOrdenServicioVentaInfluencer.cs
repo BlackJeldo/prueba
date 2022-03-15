@@ -74,7 +74,7 @@ namespace Dominio.Conectores
                 for (int m = 0; m<Json.value[i].movementsServices.Count; m++ )
                 {
                      _d1.Rows.Add(
-                    "OrdenServicioVentaInfluencer",
+                    "OrdenVentaServicios",
                     Json.value[i].f310IdTipoDocto,
                     i,
                     Json.value[i].f310Fecha,
@@ -93,7 +93,7 @@ namespace Dominio.Conectores
                     Json.value[i].f310Notas,
                     Json.value[i].f310NumeroOrdenCompra,
 
-                    "MovtoOrdenServicioVentaInfluencer",
+                    "MovtoVentaServicios",
                     Json.value[i].movementsServices[m].f310IdCo,
                     Json.value[i].movementsServices[m].f310IdTipoDocto,
                     i,
@@ -140,34 +140,29 @@ namespace Dominio.Conectores
             MessageBox.Show("Registros procesados = " + dsProcesado.Tables[0].Rows.Count);
 
 
-            //if (dsProcesado.Tables[0].Rows.Count > 0)
-            //{
+            if (dsProcesado.Tables[0].Rows.Count > 0)
+            {
 
-            //    ConsumoGT _consumo = new ConsumoGT();
-            //    string rutaplano7 = RutaPlanos;
-            //    string respuestaSiesa = _consumo.Insertar(dsProcesado, "TERCERO_CLIENTES", 120951, rutaplano7, "1");
+                ConsumoGT _consumo = new ConsumoGT();
+                string rutaplano7 = RutaPlanos;
+                string respuestaSiesa = _consumo.Insertar(dsProcesado, "ORDEN_DE_SERVICIO", 120111, rutaplano7, "1");
 
-            //    MessageBox.Show("Respuesta Siesa: " + respuestaSiesa);
+                MessageBox.Show("Respuesta Siesa: " + respuestaSiesa);
 
-            //    if (respuestaSiesa.Equals("Importacion exitosa"))
-            //    {
-            //        //MessageBox.Show("Filas procesadas: "+ dsProcesado.Tables[0].Rows.Count);
-
-            //        //for (int i = 0; i<dsProcesado.Tables[0].Rows.Count; i++)
-            //        //{
-            //        //    MessageBox.Show("Nit: "+dsProcesado.Tables[0].Rows[i]["f200Nit"]+" Tipo Ident: "+ dsProcesado.Tables[0].Rows[i]["f200IdTipoIdent"]);
-            //        //}
+                if (respuestaSiesa.Equals("Importacion exitosa"))
+                {
+                    MessageBox.Show("Filas procesadas: " + dsProcesado.Tables[0].Rows.Count);
 
 
-            //        accionesBD.ActualizarIntegrado(6, dsProcesado);
-            //        //Correo correo = new Correo();
+                    accionesBD.ActualizarIntegrado(6, dsProcesado);
+                    //Correo correo = new Correo();
 
-            //        //for (int i = 0; i < dsProcesado.Tables[0].Rows.Count; i++)
-            //        //{
-            //        //    correo.EnviarCorreo("jerazo@generictransfer.com,contabilidad@anurotec.com", "GTINTEGRATION: CREACION DE TERCERO CLIENTE", "Se creó el tercero con el Nit " + dsProcesado.Tables[0].Rows[i]["f200Nit"] + "  y tipo de identidad: " + dsProcesado.Tables[0].Rows[i]["f200IdTipoIdent"] + "\n" + "Nota: El estado actual del tercero es INACTIVO");
-            //        //}
-            //    }
-            //}
+                    //for (int i = 0; i < dsProcesado.Tables[0].Rows.Count; i++)
+                    //{
+                    //    correo.EnviarCorreo("jerazo@generictransfer.com,contabilidad@anurotec.com", "GTINTEGRATION: CREACION DE TERCERO CLIENTE", "Se creó el tercero con el Nit " + dsProcesado.Tables[0].Rows[i]["f200Nit"] + "  y tipo de identidad: " + dsProcesado.Tables[0].Rows[i]["f200IdTipoIdent"] + "\n" + "Nota: El estado actual del tercero es INACTIVO");
+                    //}
+                }
+            }
 
         }
     }

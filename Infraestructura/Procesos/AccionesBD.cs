@@ -57,6 +57,7 @@ namespace Infraestructura.Procesos
             {
                 sqlCommand.Connection.Open();
                 sqlCommand.ExecuteNonQuery();
+                MessageBox.Show("Se actualizo el integrado");
             }
             catch (Exception ex)
             {
@@ -596,6 +597,10 @@ namespace Infraestructura.Procesos
             sqlCommand.CommandTimeout = 999999999;
 
             sqlCommand.Parameters.AddWithValue("@Details",ds.Tables[0]);
+            
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
+            sqlDataAdapter.SelectCommand = sqlCommand;
+
 
 
             try
@@ -603,9 +608,8 @@ namespace Infraestructura.Procesos
                 sqlConnection.Open();
                 sqlCommand.ExecuteNonQuery();
 
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
-                DataSet DsGenerico = new DataSet();
 
+                DataSet DsGenerico = new DataSet();
                 sqlDataAdapter.Fill(DsGenerico);
 
 

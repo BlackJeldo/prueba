@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Dominio.Conectores
 {
-    class ConectorDocumentoVO:Configuraciones
+    class ConectorDocumentoVO: Configuraciones
     {
         public void conectorDocumentoVO(string json)
         {
@@ -72,15 +72,15 @@ namespace Dominio.Conectores
             _d1.Columns.Add("fcia3");
             _d1.Columns.Add("fconsecAutoReg3");
 
-            for (int i = 0; i<Json.value.Count; i++)
+            for (int i = 0; i < Json.value.Count; i++)
             {
-                for (int m =0; m<Json.value[i].voMovements.Count; m++)
+                for (int m = 0; m < Json.value[i].voMovements.Count; m++)
                 {
                     _d1.Rows.Add(
                     "DocumentoVO",
                     Json.value[i].f350IdCo,
                     Json.value[i].f350IdTipoDocto,
-                    Json.value[i].f350ConsecDocto,
+                    i,
                     Json.value[i].f350Fecha,
                     Json.value[i].f350IdTercero,
                     Json.value[i].f350IdClaseDocto,
@@ -92,7 +92,7 @@ namespace Dominio.Conectores
                     "MovtoDocumentoVO",
                     Json.value[i].voMovements[m].f350IdCo,
                     Json.value[i].voMovements[m].f350IdTipoDocto,
-                    Json.value[i].voMovements[m].f350ConsecDocto,
+                    i,
                     Json.value[i].voMovements[m].f351IdAuxiliar,
                     Json.value[i].voMovements[m].f351IdTercero,
                     Json.value[i].voMovements[m].f351IdCoMov,
@@ -137,13 +137,21 @@ namespace Dominio.Conectores
             DataSet dsOriginal = new DataSet();
             dsOriginal.Tables.Add(_d1);
 
-            MessageBox.Show("Registros originales = "+dsOriginal.Tables[0].Rows.Count);
+            MessageBox.Show("Registros originales = " + dsOriginal.Tables[0].Rows.Count);
             AccionesBD accionesBD = new AccionesBD();
             DataSet dsProcesado = new DataSet();
 
             dsProcesado = accionesBD.AlmacenarDocumentoVO(dsOriginal);
 
+            MessageBox.Show("Tablas procesadas = "+dsProcesado.Tables.Count);
             MessageBox.Show("Registros procesados = " + dsProcesado.Tables[0].Rows.Count);
+            MessageBox.Show("Movimientos procesados procesados = " + dsProcesado.Tables[1].Rows.Count);
+
+            //--------------------------PRUEBAS---------------
+
+
+
+
 
 
             //if (dsProcesado.Tables[0].Rows.Count > 0)
