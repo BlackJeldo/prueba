@@ -69,6 +69,7 @@ namespace Dominio.Conectores
 
             MessageBox.Show("Se agregaron columnas");
 
+
             for (int i = 0; i<Json.value.Count; i++)
             {
                 for (int m = 0; m<Json.value[i].movementsServices.Count; m++ )
